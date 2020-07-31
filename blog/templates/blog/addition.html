@@ -1,3 +1,42 @@
-<h1>Ma super calculatrice</h1>
-<p>{{ nombre1 }} + {{ nombre2 }}, ça fait <strong>{{ total }}</strong> !<br />
-Nous pouvons également calculer la somme dans le template : {{ nombre1|add:nombre2 }}.</p>
+{% extends "base.html" %}
+{% block title %}Ma page d'accueil{% endblock %}
+{% block content %}
+
+    <h1>Ma super calculatrice</h1>
+    <p>{{ nombre1 }} + {{ nombre2 }}, ça fait <strong>{{ total }}</strong> !<br />
+    Nous pouvons également calculer la somme dans le template : {{ nombre1|add:nombre2 }}.</p>
+    <br>
+
+    <!-- Manipulations des données avec les tags -->
+    <p>
+        C'est un nombre 
+        {% if total <= 1 %}
+            Singulier
+        {% else %}
+            Pluriel
+        {% endif %} !
+    </p>
+    <hr>
+
+    <!-- test sur les variables -->
+
+    Les couleurs de l'arc-en-ciel sont :
+
+    <ul>
+        {% for code, nom in couleurs.items %}
+            <li style="color: #{{ code }}">{{ nom }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- balise empty -->
+
+    <h3>Commentaires de l'article</h3>
+    {% for commentaire in commentaires %}
+        <p>{{ commentaire }}</p>
+    {% empty %}
+        <p class="empty">Pas de commentaires pour le moment.</p>
+    {% endfor %}
+
+{% endblock %}
+
+

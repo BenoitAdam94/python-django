@@ -7,6 +7,7 @@ from django.shortcuts import render, redirect
 one_year_in_seconds = 31536000
 
 
+
 def home(request):
     """ Exemple de page non valide au niveau HTML pour que l'exemple soit concis """
 
@@ -54,6 +55,16 @@ def date_actuelle(request):
 
 def addition(request, nombre1, nombre2):    
     total = nombre1 + nombre2
+    # couleurs = ['rouge', 'orange', 'jaune', 'vert', 'bleu', 'indigo', 'violet']
+    couleurs = {
+    'FF0000':'rouge', 
+    'ED7F10':'orange', 
+    'FFFF00':'jaune', 
+    '00FF00':'vert', 
+    '0000FF':'bleu', 
+    '4B0082':'indigo', 
+    '660099':'violet',
+}
 
     # Retourne nombre1, nombre2 et la somme des deux au tpl
     return render(request, 'blog/addition.html', locals())

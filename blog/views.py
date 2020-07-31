@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.http import HttpResponse, Http404
 from django.shortcuts import render, redirect
 
@@ -17,7 +18,6 @@ def home(request):
 
         <script>
         for (var i = 0; i <= 11; i++) {
-            
             document.write ('<a href="http://localhost:8000/blog/articles/' + i + '"> Article n°' + i + '</a><br>')
         }
         </script>
@@ -46,3 +46,14 @@ def view_articles(request, id_articles):
 
 def view_redirection(request):
     return HttpResponse("L'article 0 n'existe pas !! Vous avez été redirigé.")
+
+
+def date_actuelle(request):
+    return render(request, 'blog/date.html', {'date': datetime.now()})
+
+
+def addition(request, nombre1, nombre2):    
+    total = nombre1 + nombre2
+
+    # Retourne nombre1, nombre2 et la somme des deux au tpl
+    return render(request, 'blog/addition.html', locals())

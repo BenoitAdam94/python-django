@@ -6,24 +6,9 @@ from django.shortcuts import render, redirect
 
 one_year_in_seconds = 31536000
 
-
-
 def home(request):
-    """ Exemple de page non valide au niveau HTML pour que l'exemple soit concis """
+    return render(request, 'blog/accueil.html')
 
-    """boucle "for" en Javascript pour que le calcul se fasse coté client et non coté serveur"""
-
-    return HttpResponse("""
-        <meta charset="UTF-8">
-        <h1>Choisir un article entre 1 et 10</h1>
-
-        <script>
-        for (var i = 0; i <= 11; i++) {
-            document.write ('<a href="http://localhost:8000/blog/articles/' + i + '"> Article n°' + i + '</a><br>')
-        }
-        </script>
-    """
-    )
 
 
 def view_articles(request, id_articles):

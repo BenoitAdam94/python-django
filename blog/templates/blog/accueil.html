@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Ma page d'accueil{% endblock %}
+{% block content %}
+
+    <h1>Choisir un article entre 1 et 10</h1>
+
+    <script>
+    for (var i = 0; i <= 11; i++) {
+        document.write ('<a href="http://localhost:8000/blog/articles/' + i + '"> Article n°' + i + '</a><br>')
+    }
+    </script>
+
+{% endblock %}

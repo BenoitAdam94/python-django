@@ -1,2 +1,8 @@
-<h1>Bienvenue sur mon blog</h1>
-<p>La date actuelle est : {{ date }}</p>
+{% extends "base.html" %}
+{% block title %}Ma page d'accueil{% endblock %}
+{% block content %}
+
+    <h1>Bienvenue sur mon blog</h1>
+    <p>La date actuelle est : {{ date }}</p>
+
+{% endblock %}
